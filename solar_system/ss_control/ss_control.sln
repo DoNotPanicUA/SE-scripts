@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ss_control", "ss_control\ss_control.csproj", "{D44E5267-446F-4A64-9853-AFF1C5DE5553}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D44E5267-446F-4A64-9853-AFF1C5DE5553}.Debug|x64.ActiveCfg = Debug|x64
+		{D44E5267-446F-4A64-9853-AFF1C5DE5553}.Debug|x64.Build.0 = Debug|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6BCAC3ED-0B64-4B85-A86D-32E46624AFF6}
+	EndGlobalSection
+EndGlobal
