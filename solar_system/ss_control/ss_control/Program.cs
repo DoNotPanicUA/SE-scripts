@@ -20,30 +20,12 @@ namespace IngameScript
     partial class Program : MyGridProgram
     {
         // This file contains your actual script.
-        //
-        // You can either keep all your code here, or you can create separate
-        // code files to make your program easier to navigate while coding.
-        //
-        // In order to add a new utility class, right-click on your project, 
-        // select 'New' then 'Add Item...'. Now find the 'Space Engineers'
-        // category under 'Visual C# Items' on the left hand side, and select
-        // 'Utility Class' in the main area. Name it in the box below, and
-        // press OK. This utility class will be merged in with your code when
-        // deploying your final script.
-        //
-        // You can also simply create a new utility class manually, you don't
-        // have to use the template if you don't want to. Just do so the first
-        // time to see what a utility class looks like.
+        // DEBUG LCD = "[DEBUG]"
+        // Horizontal rotor prefix = "[SS-ROTOR-HOR]"
+        // Vertical rotor prefix = "[SS-ROTOR-VERT]"
 
         public Program()
         {
-            // The constructor, called only once every session and
-            // always before any other method is called. Use it to
-            // initialize your script. 
-            //     
-            // The constructor is optional and can be removed if not
-            // needed.
-            // 
             // It's recommended to set RuntimeInfo.UpdateFrequency 
             // here, which will allow your script to run itself without a 
             // timer block.
@@ -51,12 +33,6 @@ namespace IngameScript
 
         public void Save()
         {
-            // Called when the program needs to save its state. Use
-            // this method to save your state to the Storage field
-            // or some other means. 
-            // 
-            // This method is optional and can be removed if not
-            // needed.
         }
 
         MyCommandLine commandLine = new MyCommandLine();
@@ -67,12 +43,21 @@ namespace IngameScript
         float rotorVelocity = 1f; //default
         float defDeltaAngle = 10f;
 
-        MyIni parser = new MyIni();
+        void EchoText(String text, Boolean append)
+        {
+            try
+            {
+                IMyTextPanel lcd = GridTerminalSystem.GetBlockWithName("[DEBUG]") as IMyTextPanel;
+                lcd.WritePublicText(text + System.Environment.NewLine, append);
+            }
+            catch (Exception e) { }
+        }
 
         void SetAnlge(IMyMotorStator rotor, float angle)
         {
             if (rotor != null) {
                 float currentAngle = rotor.Angle / (float)Math.PI * 180f;
+                EchoText("Move rotor from the current angle["+currentAngle+"] to new Angle["+angle+"]", true);
                 if (currentAngle != angle)
                 {
                     if(angle > currentAngle)
@@ -120,12 +105,13 @@ namespace IngameScript
         {
             while (!CheckIsRotorsMoving())
             {
-                //null;
+                //null
             }
         }
 
         int FindBetterPossition4Rotor(IMyMotorStator rotor, List<IMySolarPanel> solarPanels)
         {
+            EchoText("Rotor[" + rotor.Name + "] is in progress", true);
             WaitTillRotorsMove();
             float initialOutput = GetCurrentOutput(solarPanels);
             LiftRotor(rotor, defDeltaAngle);
@@ -158,48 +144,49 @@ namespace IngameScript
 
         public void Main(string argument, UpdateType updateSource)
         {
-            if (commandLine.TryParse(argument))
+            try
             {
-                //get attribute
-                string arg = commandLine.Argument(0);
-                if (arg == null) { }
-
-                //check switch
-                if (commandLine.Switch("taste my d")) { }
-            }
-
-            List<IMySolarPanel> solarPanels = null;
-            GridTerminalSystem.GetBlocksOfType<IMySolarPanel>(solarPanels);
-            List<IMyMotorStator> allRotors = null;
-            GridTerminalSystem.GetBlocksOfType<IMyMotorStator>(allRotors);
-            
-            foreach(IMyMotorStator rotor in allRotors)
-            {
-                if (rotor.Name.Contains("[SS-ROTOR-HOR]"))
+                EchoText("---------- Solar System ----------", true);
+                if (commandLine.TryParse(argument))
                 {
-                    horizontalRotor = rotor;
+                    //get attribute
+                    string arg = commandLine.Argument(0);
+                    if (arg == null) { }
+
+                    //check switch
+                    if (commandLine.Switch("taste my d")) { }
                 }
-                if (rotor.Name.Contains("[SS-ROTOR-VERT]"))
+
+                List<IMySolarPanel> solarPanels = null;
+                GridTerminalSystem.GetBlocksOfType<IMySolarPanel>(solarPanels);
+                EchoText("Solar panels: " + solarPanels.Count, true);
+
+                List<IMyMotorStator> allRotors = null;
+                GridTerminalSystem.GetBlocksOfType<IMyMotorStator>(allRotors);
+
+                foreach (IMyMotorStator rotor in allRotors)
                 {
-                    verticalRotor = rotor;
+                    if (rotor.Name.Contains("[SS-ROTOR-HOR]"))
+                    {
+                        horizontalRotor = rotor;
+                        EchoText("Horizontal Rotor: " + rotor.Name, true);
+                    }
+                    if (rotor.Name.Contains("[SS-ROTOR-VERT]"))
+                    {
+                        verticalRotor = rotor;
+                        EchoText("Vertical Rotor: " + rotor.Name, true);
+                    }
                 }
-            }
 
-            if (solarPanels != null & horizontalRotor != null & verticalRotor != null)
+                if (solarPanels != null & horizontalRotor != null & verticalRotor != null)
+                {
+                    EchoText("-------- Looking for new possition --------", true);
+                    FindBetterPossition(solarPanels);
+                }
+            }catch(Exception e)
             {
-                FindBetterPossition(solarPanels);
+                EchoText(e.Message, true);
             }
-
-
-            // The main entry point of the script, invoked every time
-            // one of the programmable block's Run actions are invoked,
-            // or the script updates itself. The updateSource argument
-            // describes where the update came from. Be aware that the
-            // updateSource is a  bitfield  and might contain more than 
-            // one update type.
-            // 
-            // The method itself is required, but the arguments above
-            // can be removed if not needed.
         }
     }
 }

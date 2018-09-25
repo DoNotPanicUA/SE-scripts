@@ -27,3 +27,32 @@ D:\SE dev\Solar system\solar_system\ss_control\ss_control\obj\x64\Debug\ss_contr
 D:\SE dev\Solar system\solar_system\ss_control\ss_control\obj\x64\Debug\ss_control.csproj.CopyComplete
 D:\SE dev\Solar system\solar_system\ss_control\ss_control\obj\x64\Debug\ss_control.exe
 D:\SE dev\Solar system\solar_system\ss_control\ss_control\obj\x64\Debug\ss_control.pdb
+D:\SE C#\solar_system\ss_control\ss_control\bin\ss_control.exe
+D:\SE C#\solar_system\ss_control\ss_control\bin\ss_control.pdb
+D:\SE C#\solar_system\ss_control\ss_control\bin\MDKUtilities.dll
+D:\SE C#\solar_system\ss_control\ss_control\bin\HavokWrapper.dll
+D:\SE C#\solar_system\ss_control\ss_control\bin\VRage.Native.dll
+D:\SE C#\solar_system\ss_control\ss_control\bin\VRage.OpenVRWrapper.dll
+D:\SE C#\solar_system\ss_control\ss_control\bin\VRage.Ansel.dll
+D:\SE C#\solar_system\ss_control\ss_control\bin\SharpDX.dll
+D:\SE C#\solar_system\ss_control\ss_control\bin\SharpDX.Desktop.dll
+D:\SE C#\solar_system\ss_control\ss_control\bin\SharpDX.Mathematics.dll
+D:\SE C#\solar_system\ss_control\ss_control\bin\Microsoft.CodeAnalysis.dll
+D:\SE C#\solar_system\ss_control\ss_control\bin\Microsoft.CodeAnalysis.CSharp.dll
+D:\SE C#\solar_system\ss_control\ss_control\bin\System.Collections.Immutable.dll
+D:\SE C#\solar_system\ss_control\ss_control\bin\SharpDX.DirectInput.dll
+D:\SE C#\solar_system\ss_control\ss_control\bin\DirectShowLib-2005.dll
+D:\SE C#\solar_system\ss_control\ss_control\bin\System.Reflection.Metadata.dll
+D:\SE C#\solar_system\ss_control\ss_control\bin\SharpDX.xml
+D:\SE C#\solar_system\ss_control\ss_control\bin\SharpDX.Desktop.xml
+D:\SE C#\solar_system\ss_control\ss_control\bin\SharpDX.Mathematics.xml
+D:\SE C#\solar_system\ss_control\ss_control\bin\Microsoft.CodeAnalysis.xml
+D:\SE C#\solar_system\ss_control\ss_control\bin\Microsoft.CodeAnalysis.CSharp.xml
+D:\SE C#\solar_system\ss_control\ss_control\bin\System.Collections.Immutable.xml
+D:\SE C#\solar_system\ss_control\ss_control\bin\SharpDX.DirectInput.xml
+D:\SE C#\solar_system\ss_control\ss_control\bin\System.Reflection.Metadata.xml
+D:\SE C#\solar_system\ss_control\ss_control\obj\x64\Debug\ss_control.csprojAssemblyReference.cache
+D:\SE C#\solar_system\ss_control\ss_control\obj\x64\Debug\ss_control.csproj.CoreCompileInputs.cache
+D:\SE C#\solar_system\ss_control\ss_control\obj\x64\Debug\ss_control.csproj.CopyComplete
+D:\SE C#\solar_system\ss_control\ss_control\obj\x64\Debug\ss_control.exe
+D:\SE C#\solar_system\ss_control\ss_control\obj\x64\Debug\ss_control.pdb
